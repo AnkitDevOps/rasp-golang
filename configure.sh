@@ -5,7 +5,7 @@ EOT
 echo "DNS Configured"
 cat resolv.conf
 echo "Configuring golang"
-sudo tar -C /usr/local -xzf $HOME/software/go1.13.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf $HOME/software/go1.13.3.linux-armv6l.tar.gz
 echo "Golang configured successfully"
 go version
 mkdir $HOME/cloudprobe
