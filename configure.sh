@@ -7,14 +7,14 @@ cat /etc/resolv.conf
 echo "Configuring golang"
 sudo tar -C /usr/local -xzf $HOME/software/go1.13.3.linux-armv6l.tar.gz
 echo "Golang configured successfully"
-mkdir $HOME/cloudprobe
+#add path
 #yoto
 filename=$HOME/.profile
 if [ ! -f $filename ]
 then
     touch $filename
 fi
-cmd_list='"export GOROOT=/usr/local/go" "export GOPATH=\$HOME/cloudprobe" "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH"'
+cmd_list='"export GOROOT=/usr/local/go" "export GOPATH=$HOME/cloudprobe" "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH"'
 for cmd in "${cmd_list[@]}"; do
     grep -qxF "$cmd" $filename || echo "$cmd" >> $filename
 done
