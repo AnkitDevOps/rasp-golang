@@ -1,11 +1,11 @@
-sudo cat <<EOT > /etc/resolv.conf
+cat <<EOT > /etc/resolv.conf
 nameserver 8.8.8.8
 nameserver 9.9.9.9
 EOT
 echo "DNS Configured"
 cat /etc/resolv.conf
 echo "Configuring golang"
-sudo tar -C /usr/local -xzf $HOME/software/go1.13.3.linux-armv6l.tar.gz
+tar -C /usr/local -xzf $HOME/software/go1.13.3.linux-armv6l.tar.gz
 echo "Golang configured successfully"
 go version
 mkdir $HOME/cloudprobe
@@ -25,7 +25,7 @@ go get -v github.com/google/cloudprober
 GOBIN=$GOPATH/bin go install $GOPATH/src/github.com/google/cloudprober/cmd/cloudprober.go
 echo "Cloudprober installed"
 echo "Enabling ping" 
-sudo sysctl -w net.ipv4.ping_group_range="0 5000"
+sysctl -w net.ipv4.ping_group_range="0 5000"
 echo "Creating default probe config"
 cat > /tmp/cloudprober.cfg <<EOF
 probe {
