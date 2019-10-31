@@ -3,7 +3,7 @@ nameserver 8.8.8.8
 nameserver 9.9.9.9
 EOT
 echo "DNS Configured"
-cat resolv.conf
+cat /etc/resolv.conf
 echo "Configuring golang"
 sudo tar -C /usr/local -xzf $HOME/software/go1.13.3.linux-armv6l.tar.gz
 echo "Golang configured successfully"
